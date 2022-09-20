@@ -1,0 +1,81 @@
+mysql> USE employee;
+Database changed
+mysql> CREATE TABLE STUDENT(regno int,name VARCHAR(15),Gender CHAR(1),Mobileno int,city VARCHAR(15));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe STUDENT;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| regno    | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(15) | YES  |     | NULL    |       |
+| Gender   | char(1)     | YES  |     | NULL    |       |
+| Mobileno | int(11)     | YES  |     | NULL    |       |
+| city     | varchar(15) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> USE employee;
+Database changed
+mysql> CREATE TABLE FACULTY(FacNO VARCHAR(4),FacName VARCHAR(15),Gender CHAR(1),DOB DATE,DOJ DATE,MobileNo int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe FACULTY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| FacNO    | varchar(4)  | YES  |     | NULL    |       |
+| FacName  | varchar(15) | YES  |     | NULL    |       |
+| Gender   | char(1)     | YES  |     | NULL    |       |
+| DOB      | date        | YES  |     | NULL    |       |
+| DOJ      | date        | YES  |     | NULL    |       |
+| MobileNo | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)
+
+mysql> CREATE TABLE DEPARTMENT(DepNo VARCHAR(4),DeptName VARCHAR(15),DeptHead VARCHAR(4));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe DEPARTMENT;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| DepNo    | varchar(4)  | YES  |     | NULL    |       |
+| DeptName | varchar(15) | YES  |     | NULL    |       |
+| DeptHead | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.04 sec)
+
+mysql> CREATE TABLE COURSE(CourseNo VARCHAR(3),Coursedesc VARCHAR(14),CourseType CHAR(1),semno CHAR(1),HallNo VARCHAR(4),FacNo VARCHAR(4));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> describe COURSE;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| CourseNo   | varchar(3)  | YES  |     | NULL    |       |
+| Coursedesc | varchar(14) | YES  |     | NULL    |       |
+| CourseType | char(1)     | YES  |     | NULL    |       |
+| semno      | char(1)     | YES  |     | NULL    |       |
+| HallNo     | varchar(4)  | YES  |     | NULL    |       |
+| FacNo      | varchar(4)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)
+
+mysql> ALTER TABLE FACULTY ADD DeptNo VARCHAR(4);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe FACULTY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| FacNO    | varchar(4)  | YES  |     | NULL    |       |
+| FacName  | varchar(15) | YES  |     | NULL    |       |
+| Gender   | char(1)     | YES  |     | NULL    |       |
+| DOB      | date        | YES  |     | NULL    |       |
+| DOJ      | date        | YES  |     | NULL    |       |
+| MobileNo | int(11)     | YES  |     | NULL    |       |
+| DeptNo   | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.04 sec)
