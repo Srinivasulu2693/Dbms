@@ -1,0 +1,82 @@
+1)
+mysql> select * from subjects where coursetype='p' OR coursetype='s';
++----------+----------------+------------+-------+--------+-------+
+| courseno | courseDes      | coursetype | semno | hallno | facno |
++----------+----------------+------------+-------+--------+-------+
+| 1        | data analytics | P          |     6 |    213 |  1452 |
+| 2        | data science   | s          |     6 |    214 |  1422 |
+| 3        | DBMS           | p          |     6 |    324 |  1765 |
++----------+----------------+------------+-------+--------+-------+
+3 rows in set (0.00 sec)
+2)
+mysql> select * from aggregatecourse where score BETWEEN 50 AND 90;
++----------+---------------+-----------+---------+-------+-------+
+| courseno | coursename    | regno     | name    | score | semno |
++----------+---------------+-----------+---------+-------+-------+
+| C002     | c programming | 191934576 | pooja   |    87 |     6 |
+| C002     | python        | 191742356 | kishore |    89 |     5 |
+| C002     | python        | 191823456 | anil    |    74 |     5 |
+| C002     | physics       | 192016006 | jaya    |    85 |     5 |
+| C0021    | maths         | 192011008 | priya   |    89 |     5 |
++----------+---------------+-----------+---------+-------+-------+
+5 rows in set (0.02 sec)
+3)
+mysql> select avg(score) from aggregatecourse where courseno='C002';
++------------+
+| avg(score) |
++------------+
+|    83.7500 |
++------------+
+1 row in set (0.02 sec)
+4)
+mysql> select max(score),min(score) from aggregatecourse where courseno='C0021';
++------------+------------+
+| max(score) | min(score) |
++------------+------------+
+|         98 |         89 |
++------------+------------+
+1 row in set (0.00 sec)
+5)
+mysql> select max(score),min(score),avg(score) from aggregatecourse where semno=5;
++------------+------------+------------+
+| max(score) | min(score) | avg(score) |
++------------+------------+------------+
+|         98 |         74 |    88.3333 |
++------------+------------+------------+
+1 row in set (0.00 sec)
+6)
+mysql> select coursename,avg(score)from aggregatecourse;
++---------------+------------+
+| coursename    | avg(score) |
++---------------+------------+
+| c programming |    88.1429 |
++---------------+------------+
+1 row in set (0.00 sec)
+7)
+mysql> select sum(score) from aggregatecourse;
++------------+
+| sum(score) |
++------------+
+|        617 |
++------------+
+1 row in set (0.00 sec)
+8)
+mysql> select count(courseno) from aggregatecourse;
++-----------------+
+| count(courseno) |
++-----------------+
+|               7 |
++-----------------+
+1 row in set (0.02 sec)
+9)
+mysql> select courseno,coursename,count(regno) from aggregatecourse;
++----------+---------------+--------------+
+| courseno | coursename    | count(regno) |
++----------+---------------+--------------+
+| C002     | c programming |            7 |
++----------+---------------+--------------+
+1 row in set (0.00 sec)
+
+
+
+
