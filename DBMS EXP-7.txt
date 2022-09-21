@@ -1,0 +1,55 @@
+1)
+mysql> select * from aggregatecourse where marks >(select avg(score) from aggregatecourse);
+ERROR 1054 (42S22): Unknown column 'marks' in 'where clause'
+mysql> select * from aggregatecourse where score >(select avg(score) from aggregatecourse);
++----------+------------+-----------+---------+-------+-------+
+| courseno | coursename | regno     | name    | score | semno |
++----------+------------+-----------+---------+-------+-------+
+| C002     | python     | 191742356 | kishore |    89 |     5 |
+| C0021    | maths      | 192011460 | ganesh  |    98 |     5 |
+| C0021    | maths      | 192011008 | priya   |    89 |     5 |
+| C0021    | maths      | 192019015 | revanth |    95 |     5 |
++----------+------------+-----------+---------+-------+-------+
+4 rows in set (0.00 sec)
+2)
+mysql> alter table aggregatecourse
+    -> add column assesment int(20);
+Query OK, 7 rows affected (0.06 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from aggregatecourse;
++----------+---------------+-----------+---------+-------+-------+-----------+
+| courseno | coursename    | regno     | name    | score | semno | assesment |
++----------+---------------+-----------+---------+-------+-------+-----------+
+| C002     | c programming | 191934576 | pooja   |    87 |     6 |      NULL |
+| C002     | python        | 191742356 | kishore |    89 |     5 |      NULL |
+| C002     | python        | 191823456 | anil    |    74 |     5 |      NULL |
+| C0021    | maths         | 192011460 | ganesh  |    98 |     5 |      NULL |
+| C002     | physics       | 192016006 | jaya    |    85 |     5 |      NULL |
+| C0021    | maths         | 192011008 | priya   |    89 |     5 |      NULL |
+| C0021    | maths         | 192019015 | revanth |    95 |     5 |      NULL |
++----------+---------------+-----------+---------+-------+-------+-----------+
+7 rows in set (0.00 sec)
+3)
+mysql> select * from aggregatecourse where assesment>1;
++----------+---------------+-----------+---------+-------+-------+-----------+
+| courseno | coursename    | regno     | name    | score | semno | assesment |
++----------+---------------+-----------+---------+-------+-------+-----------+
+| C002     | c programming | 191934576 | pooja   |    87 |     6 |         7 |
+| C002     | python        | 191742356 | kishore |    89 |     5 |         7 |
+| C002     | python        | 191823456 | anil    |    74 |     5 |         7 |
+| C0021    | maths         | 192011460 | ganesh  |    98 |     5 |         9 |
+| C002     | physics       | 192016006 | jaya    |    85 |     5 |         7 |
+| C0021    | maths         | 192011008 | priya   |    89 |     5 |         9 |
+| C0021    | maths         | 192019015 | revanth |    95 |     5 |         9 |
++----------+---------------+-----------+---------+-------+-------+-----------+
+7 rows in set (0.00 sec)
+4)
+mysql> select * from faculty;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 3     | geetha  | F      | 1997-05-18 | 2009-07-14 | 219    | 9374567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec) 
+
