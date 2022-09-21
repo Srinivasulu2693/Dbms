@@ -1,0 +1,142 @@
+1)
+mysql> insert into student
+    -> values (191711342,'prakash','M','cumbum',9876543210);
+Query OK, 1 row affected (0.02 sec)
+mysql> select * from student;
++-----------+---------+--------+----------+------------+
+| regno     | name    | Gender | city     | mobile_no  |
++-----------+---------+--------+----------+------------+
+| 191711342 | prakash | M      | cumbum   | 9876543210 |
+| 192011460 | ganesh  | M      | chittoor | 7337276715 |
++-----------+---------+--------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into FACULTY VALUES(001,'devi','F','1989-05-18','2006-07-14',213,9704567867);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from FACULTY;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 1     | devi    | F      | 1989-05-18 | 2006-07-14 | 213    | 9704567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into DEPARTMENT VALUES(124,'PRODUCTION','jaya');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from DEPARTMENT;
++-------+------------+----------+
+| DepNo | DeptName   | DeptHead |
++-------+------------+----------+
+| 124   | PRODUCTION | jaya     |
++-------+------------+----------+
+1 row in set (0.00 sec)
+mysql> insert into COURSE VALUES(142,'DBMS','M',06,234,1540);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from COURSE;
++----------+------------+------------+-------+--------+-------+
+| CourseNo | Coursedesc | CourseType | semno | HallNo | FacNo |
++----------+------------+------------+-------+--------+-------+
+| 142      | DBMS       | M          | 6     | 234    | 1540  |
++----------+------------+------------+-------+--------+-------+
+1 row in set (0.00 sec)
+2)
+mysql> update STUDENT
+    -> set name='jaya',gender='F',city='chennai',mobile_no=9944560908
+    -> where regno=191711342;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++-----------+--------+--------+----------+------------+
+| regno     | name   | Gender | city     | mobile_no  |
++-----------+--------+--------+----------+------------+
+| 191711342 | jaya   | F      | chennai  | 9944560908 |
+| 192011460 | ganesh | M      | chittoor | 7337276715 |
++-----------+--------+--------+----------+------------+
+2 rows in set (0.00 sec)
+3)
+mysql> delete from faculty
+    -> where FacName='devi';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 2     | ASHOK   | M      | 1986-05-18 | 2016-07-14 | 213    | 9344567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec)
+4)
+mysql> update faculty
+    -> set DOB='1983-09-05'
+    -> where facname='ASHOK';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from FACULTY;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 2     | ASHOK   | M      | 1983-09-05 | 2016-07-14 | 213    | 9344567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec)
+5)
+mysql> delete from faculty
+    -> where DOB<='1983-09-05';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from faculty;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 3     | geetha  | F      | 1997-05-18 | 2009-07-14 | 219    | 9374567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec)
+6)
+mysql> select * from faculty;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 3     | geetha  | F      | 1997-05-18 | 2009-07-14 | 219    | 9374567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select *from faculty;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 3     | geetha  | F      | 1997-05-18 | 2009-07-14 | 219    | 9374567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from student;
++-----------+--------+--------+----------+------------+
+| regno     | name   | Gender | city     | mobile_no  |
++-----------+--------+--------+----------+------------+
+| 191711342 | jaya   | F      | chennai  | 9944560908 |
+| 192011460 | ganesh | M      | chittoor | 7337276715 |
++-----------+--------+--------+----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from depatment;
+ERROR 1146 (42S02): Table 'employee.depatment' doesn't exist
+mysql> select * from department;
++-------+------------+----------+
+| DepNo | DeptName   | DeptHead |
++-------+------------+----------+
+| 124   | PRODUCTION | jaya     |
++-------+------------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from COURSE;
++----------+------------+------------+-------+--------+-------+
+| CourseNo | Coursedesc | CourseType | semno | HallNo | FacNo |
++----------+------------+------------+-------+--------+-------+
+| 142      | DBMS       | M          | 6     | 234    | 1540  |
++----------+------------+------------+-------+--------+-------+
+1 row in set (0.00 sec)
+
+
