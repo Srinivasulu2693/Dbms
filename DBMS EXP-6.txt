@@ -1,0 +1,46 @@
+mysql> select coursename,sum(courseno) as courseno from aggregatecourse group by coursename;
++---------------+----------+
+| coursename    | courseno |
++---------------+----------+
+| c programming |        0 |
+| maths         |        0 |
+| physics       |        0 |
+| python        |        0 |
++---------------+----------+
+4 rows in set, 7 warnings (0.01 sec)
+mysql> select * from student;
++-----------+------------+--------+--------------+------------+------------+----------+
+| regno     | name       | Gender | city         | mobile_no  | DOB        | CourseNO |
++-----------+------------+--------+--------------+------------+------------+----------+
+|  19201134 | priya      | F      | kancheepuram | 9887854327 | 2004-06-16 | 105      |
+| 191711342 | jaya shree | F      | chennai      | 9944560908 | 2003-07-12 | 105      |
+| 192011452 | sumanth    | M      | salem        | 9785674388 | 2004-07-02 | 107      |
+| 192011460 | ganesh     | M      | chittoor     | 7337276715 | 2003-06-28 | 101      |
+| 192011876 | revanth    | M      | NELLORE      | 9704670412 | 2000-07-06 | 101      |
+| 192013445 | venugopal  | M      | madanapalli  | 9865895443 | 2003-09-16 | 101      |
+| 192013452 | anupama    | M      | HYDERABAD    | 9876543298 | 1996-09-14 | 105      |
+| 192345321 | sai        | M      | salur        | 9854455674 | 2001-08-19 | 124      |
++-----------+------------+--------+--------------+------------+------------+----------+
+8 rows in set (0.02 sec)
+mysql> select name,gender,mobileno,regno from student order by regno;
+ERROR 1054 (42S22): Unknown column 'mobileno' in 'field list'
+mysql> select name,gender,mobile_no,regno from student order by regno;
++------------+--------+------------+-----------+
+| name       | gender | mobile_no  | regno     |
++------------+--------+------------+-----------+
+| priya      | F      | 9887854327 |  19201134 |
+| jaya shree | F      | 9944560908 | 191711342 |
+| sumanth    | M      | 9785674388 | 192011452 |
+| ganesh     | M      | 7337276715 | 192011460 |
+| revanth    | M      | 9704670412 | 192011876 |
+| venugopal  | M      | 9865895443 | 192013445 |
+| anupama    | M      | 9876543298 | 192013452 |
+| sai        | M      | 9854455674 | 192345321 |
++------------+--------+------------+-----------+
+mysql> select* from faculty order by DOB DESC;
++-------+---------+--------+------------+------------+--------+------------+
+| FacNO | FacName | Gender | DOB        | DOJ        | DeptNo | MobileNo   |
++-------+---------+--------+------------+------------+--------+------------+
+| 3     | geetha  | F      | 1997-05-18 | 2009-07-14 | 219    | 9374567867 |
++-------+---------+--------+------------+------------+--------+------------+
+1 row in set (0.02 sec)
