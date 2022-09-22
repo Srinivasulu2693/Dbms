@@ -1,0 +1,12 @@
+mysql> CREATE FUNCTION DBMS (s CHAR(20))
+    -> RETURNS CHAR(50) DETERMINISTIC
+    ->        RETURN CONCAT('DBMS, ','!');
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT DBMS('course');
++----------------+
+| DBMS('course') |
++----------------+
+| DBMS, course!  |
++----------------+
+1 row in set (0.05 sec)
