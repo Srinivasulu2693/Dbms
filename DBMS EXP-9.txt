@@ -1,0 +1,54 @@
+mysql> select faculty.FacNo,faculty.FacName,department.depno,department.deptname from faculty cross join department;
++-------+-------------+-------+----------+
+| FacNo | FacName     | depno | deptname |
++-------+-------------+-------+----------+
+| 3     | geetha      | 124   | CSE      |
+| 4     | puvirasi    | 124   | CSE      |
+| 5     | Babu        | 124   | CSE      |
+| 6     | kanagathara | 124   | CSE      |
+| 3     | geetha      | 125   | ECE      |
+| 4     | puvirasi    | 125   | ECE      |
+| 5     | Babu        | 125   | ECE      |
+| 6     | kanagathara | 125   | ECE      |
+| 3     | geetha      | 126   | CSE      |
+| 4     | puvirasi    | 126   | CSE      |
+| 5     | Babu        | 126   | CSE      |
+| 6     | kanagathara | 126   | CSE      |
+| 3     | geetha      | 127   | EEE      |
+| 4     | puvirasi    | 127   | EEE      |
+| 5     | Babu        | 127   | EEE      |
+| 6     | kanagathara | 127   | EEE      |
++-------+-------------+-------+----------+
+16 rows in set (0.02 sec)
+mysql> select*from student;
++-----------+------------+--------+--------------+------------+------------+----------+
+| regno     | name       | Gender | city         | mobile_no  | DOB        | CourseNO |
++-----------+------------+--------+--------------+------------+------------+----------+
+|  19201134 | priya      | F      | kancheepuram | 9887854327 | 2004-06-16 | 105      |
+| 191711342 | jaya shree | F      | chennai      | 9944560908 | 2003-07-12 | 105      |
+| 192011452 | sumanth    | M      | salem        | 9785674388 | 2004-07-02 | 107      |
+| 192011460 | ganesh     | M      | chittoor     | 7337276715 | 2003-06-28 | 101      |
+| 192011876 | revanth    | M      | NELLORE      | 9704670412 | 2000-07-06 | 101      |
+| 192013445 | venugopal  | M      | madanapalli  | 9865895443 | 2003-09-16 | 101      |
+| 192013452 | anupama    | M      | HYDERABAD    | 9876543298 | 1996-09-14 | 105      |
+| 192345321 | sai        | M      | salur        | 9854455674 | 2001-08-19 | 124      |
++-----------+------------+--------+--------------+------------+------------+----------+
+8 rows in set (0.02 sec)
+mysql> select * from aggregatecourse;
++----------+---------------+-----------+---------+-------+-------+-----------+
+| courseno | coursename    | regno     | name    | score | semno | assesment |
++----------+---------------+-----------+---------+-------+-------+-----------+
+| C002     | c programming | 191934576 | pooja   |    87 |     6 |         7 |
+| C002     | python        | 191742356 | kishore |    89 |     5 |         7 |
+| C002     | python        | 191823456 | anil    |    74 |     5 |         7 |
+| C0021    | maths         | 192011460 | ganesh  |    98 |     5 |         9 |
+| C002     | physics       | 192016006 | jaya    |    85 |     5 |         7 |
+| C0021    | maths         | 192011008 | priya   |    89 |     5 |         9 |
+| C0021    | maths         | 192019015 | revanth |    95 |     5 |         9 |
++----------+---------------+-----------+---------+-------+-------+-----------+
+7 rows in set (0.00 sec)
+mysql> select student.regno,student.name,aggregatecourse.coursename,aggregatecourse.score from student inner join aggregatecourse on student.DOB=aggregatecourse.assesment;
+Empty set (0.00 sec)
+
+mysql>
+
