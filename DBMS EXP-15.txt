@@ -1,0 +1,25 @@
+mysql> Delimiter //
+mysql> create Function SALARY (INCOME INT)
+    -> RETURNS INT
+    -> BEGIN
+    -> DECLARE TAX INT;
+    -> SET TAX=0;
+    -> MYLABEL:LOOP
+    -> SET INCOME=INCOME+TAX;
+    -> IF INCOME<100000 THEN
+    -> ITERATE mylabel;
+    -> END IF;
+    -> LEAVE mylabel;
+    -> END LOOP mylabel;
+    -> RETURN INCOME;
+    -> END; //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> Delimiter ;
+mysql> select salary(50000);
++--------------+
+| salary(50000)|
++--------------+
+|        50000 |
++--------------+
+1 row in set (0.05 sec)
