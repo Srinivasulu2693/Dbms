@@ -1,0 +1,32 @@
+mysql> create view std_view as select regno,name,DOB from student;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from std_view;
++-----------+------------+------------+
+| regno     | name       | DOB        |
++-----------+------------+------------+
+|  19201134 | priya      | 2004-06-16 |
+| 191711342 | jaya shree | 2003-07-12 |
+| 192011452 | sumanth    | 2004-07-02 |
+| 192011460 | ganesh     | 2003-06-28 |
+| 192011876 | revanth    | 2000-07-06 |
+| 192013445 | venugopal  | 2003-09-16 |
+| 192013452 | anupama    | 1996-09-14 |
+| 192345321 | sai        | 2001-08-19 |
++-----------+------------+------------+
+8 rows in set (0.02 sec)
+
+mysql> create index regno on student(name);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from student;
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table   | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| student |          0 | PRIMARY  |            1 | regno       | A         |           8 |     NULL | NULL   |      | BTREE      |         |               |
+| student |          1 | regno    |            1 | name        | A         |           8 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+2 rows in set (0.02 sec)
+
+mysql>
