@@ -1,0 +1,44 @@
+mysql> CREATE FUNCTION Income ( starting INT )
+    -> RETURNS INT
+    ->
+    -> BEGIN
+    ->
+    ->    DECLARE income INT;
+    ->
+    ->    SET income = 0;
+    ->
+    ->    label: LOOP
+    ->      SET income = income + starting_value;
+    ->      IF income < 50000 THEN
+    ->        ITERATE label1;
+    ->      END IF;
+    ->      LEAVE label1;
+    ->    END LOOP label1;
+    ->
+    ->    RETURN income;
+    ->
+    -> END; //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> select income (1000);
++-------------------+
+| income (4000)     |
++-------------------+
+|              5000 |
++-------------------+
+1 row in set (0.01 sec)
+
+
+mysql> select repeat(facname,2) from faculty;
++-------------------+
+| repeat(facname,2) |
++-------------------+
+| geetageeta        |
+| babubabu          |
+| kanagathara       |
+| ashokaashok       |    |
+| devidevi          |         |
++-------------------+
+7 rows in set (0.02 sec)
