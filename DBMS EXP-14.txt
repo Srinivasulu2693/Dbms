@@ -1,0 +1,26 @@
+create user 'ganesh'@'localhost' identified by 'ganesh123';
+Query OK, 0 rows affected (0.00 sec)
+mysql> grant all on student to 'ganesh'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'ganesh'@'localhost';
++---------------------------------------------------------------------------------------------------------------+
+| Grants for ganesh@localhost                                                                                   |
++---------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ganesh'@'localhost' IDENTIFIED BY PASSWORD '*738275AA796D5245723386C43F69F5B396D4DAD7' |
+| GRANT ALL PRIVILEGES ON `library`.`student` TO 'ganesh'@'localhost'                                           |
++---------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke all on student from 'ganesh'@'localhost';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show grants for 'ganesh'@'localhost';
++---------------------------------------------------------------------------------------------------------------+
+| Grants for ganesh@localhost                                                                                   |
++---------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ganesh'@'localhost' IDENTIFIED BY PASSWORD '*738275AA796D5245723386C43F69F5B396D4DAD7' |
++---------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
