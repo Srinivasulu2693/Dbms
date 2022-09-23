@@ -1,0 +1,19 @@
+mysql> select repeat(facname,2) from faculty;
++------------------------+
+| repeat(facname,2)      |
++------------------------+
+| puvirasipuvirasi       |
+| BabuBabu               |
+| kanagatharakanagathara |
++------------------------+
+3 rows in set (0.02 sec)
+
+mysql> select repeat('srinivas',4);
++----------------------------------+
+| repeat('srinivas',4)             |
++----------------------------------+
+| srinivassrinivassrinivassrinivas |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
