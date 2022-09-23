@@ -1,0 +1,28 @@
+mysql> use library;
+Database changed
+mysql> select * from books;
++------+--------------+------------+---------------+
+| Bno  | Bname        | authorname | authorcountry |
++------+--------------+------------+---------------+
+|    1 | dark night   | william    | india         |
+|    2 | harry potter | j K        | USA           |
+|    3 | hard days    | revanth    | india         |
++------+--------------+------------+---------------+
+3 rows in set (0.03 sec)
+
+mysql> update books set authorname='rowlings'
+    -> where Bname='harry potter';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select* from books;
++------+--------------+------------+---------------+
+| Bno  | Bname        | authorname | authorcountry |
++------+--------------+------------+---------------+
+|    1 | dark night   | william    | india         |
+|    2 | harry potter | rowlings   | USA           |
+|    3 | hard days    | revanth    | india         |
++------+--------------+------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql>
